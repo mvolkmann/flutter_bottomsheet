@@ -43,8 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
               builder: (context) => ElevatedButton(
                 child: Text('Show BottomSheet'),
                 onPressed: () {
-                  Scaffold.of(context).showBottomSheet<void>(
-                    (BuildContext context) => SafeArea(
+                  showBottomSheet<void>(
+                    context: context,
+                    builder: (context) => SafeArea(
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
