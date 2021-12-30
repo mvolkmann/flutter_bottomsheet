@@ -11,13 +11,16 @@ void openBottomSheet({
     backgroundColor: Colors.green,
     context: context,
     builder: (context) => SafeArea(
-      child: Column(
-        children: [
-          widget,
-          ElevatedButton(
-              child: Text('Close'), onPressed: () => Navigator.pop(context))
-        ],
-        mainAxisSize: MainAxisSize.min,
+      child: SizedBox(
+        child: Column(
+          children: [
+            widget,
+            ElevatedButton(
+                child: Text('Close'), onPressed: () => Navigator.pop(context))
+          ],
+          mainAxisSize: MainAxisSize.min,
+        ),
+        width: double.infinity,
       ),
     ),
   );
