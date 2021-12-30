@@ -29,20 +29,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  //PersistentBottomSheetController? controller;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Builder(
-        builder: (context) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Builder(
+              builder: (context) => ElevatedButton(
                 child: Text('Show BottomSheet'),
                 onPressed: () {
                   Scaffold.of(context).showBottomSheet<void>(
@@ -71,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
