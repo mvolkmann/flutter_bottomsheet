@@ -10,13 +10,15 @@ void openBottomSheet({
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          child: Column(children: [
-            widget,
-            ElevatedButton(
-                child: Text('Close'), onPressed: () => Navigator.pop(context))
-          ]),
+          child: Column(
+            children: [
+              widget,
+              ElevatedButton(
+                  child: Text('Close'), onPressed: () => Navigator.pop(context))
+            ],
+            mainAxisSize: MainAxisSize.min,
+          ),
           decoration: BoxDecoration(color: Colors.green),
-          height: 100,
           width: double.infinity,
         ),
       ),
