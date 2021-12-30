@@ -30,6 +30,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var sheetWidget = Text(
+    'I am in a BottomSheet.',
+    style: TextStyle(color: Colors.white, fontSize: 24),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +44,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[BottomSheetButton()],
+          children: <Widget>[
+            // Using Builder just to get a Context inside Scaffold
+            // so the showBottomSheet function can find the Scaffold.
+            Builder(
+              builder: (context) => ElevatedButton(
+                child: Text('Show BottomSheet'),
+                // openBottomSheet is defined in bottom_sheet_button.dart.
+                onPressed: () => openBottomSheet(
+                  context: context,
+                  widget: sheetWidget,
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
