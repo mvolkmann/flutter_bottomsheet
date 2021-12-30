@@ -52,7 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Show BottomSheet'),
                 // openBottomSheet is defined in bottom_sheet_button.dart.
                 onPressed: () => openBottomSheet(
-                    context: context, widget: sheetWidget, modal: false),
+                  context: context,
+                  widget: sheetWidget,
+                  modal: false,
+                ),
               ),
             )
           ],
