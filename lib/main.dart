@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bottom_sheet_button.dart';
+import 'bottom_sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,23 +42,33 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // Using Builder just to get a Context inside Scaffold
-            // so the showBottomSheet function can find the Scaffold.
-            Builder(
-              builder: (context) => ElevatedButton(
-                child: Text('Show BottomSheet'),
+        // Using Builder just to get a Context inside Scaffold
+        // so the showBottomSheet function can find the Scaffold.
+        child: Builder(
+          builder: (context) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                child: Text('Show Non-Modal BottomSheet'),
                 // openBottomSheet is defined in bottom_sheet_button.dart.
                 onPressed: () => openBottomSheet(
+                  backgroundColor: Colors.green,
                   context: context,
-                  widget: sheetWidget,
+                  includeCloseButton: true,
                   modal: false,
+                  widget: sheetWidget,
                 ),
               ),
-            )
-          ],
+              ElevatedButton(
+                child: Text('Show Modal BottomSheet'),
+                onPressed: () => openBottomSheet(
+                  context: context,
+                  modal: true,
+                  widget: sheetWidget,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
